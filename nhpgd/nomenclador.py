@@ -87,18 +87,3 @@ class Nomenclador:
         for i, nom in n.tree.items():
             writer.writerow(nom)
         f.close
-
-
-if __name__ == '__main__':
-    n = Nomenclador()
-    # n.download_csv()
-    # n.save_csv(path='lala.csv')
-
-    for s in n.search('5.02'):
-        print(s['codigo'])
-        print(' - DESCR: {}'.format(s['descripcion']))
-        print(' - ARANCEL: {}'.format(s['arancel']))
-        print(' - OBSERVACIONES \n********\n{}\n********'.format(s['observaciones']))
-    
-    # for s in n.search('5.02'):
-    #    print(s)

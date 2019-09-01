@@ -15,12 +15,39 @@ pip install nhpgd
 
 ## Uso
 
-Buscar en el nomeclador.
+### Buscar en el nomeclador
+
+#### Por código
+
+Busca solo elementos con códigos iguales
 
 ```python
 from nhpgd.nomenclador import Nomenclador
 n = Nomenclador()
-for s in n.search('5.04'):
+for s in n.search(codigo='5.04'):
+    print(s['codigo'])
+    print(' - DESCR: {}'.format(s['descripcion']))
+    print(' - ARANCEL: {}'.format(s['arancel']))
+    # print(' - OBSERVACIONES \n********\n{}\n********'.format(s['observaciones']))
+```
+
+```
+5.04
+ - DESCR: Tumores de base de craneo.Tumores tronco cerebralAneurismas cerebrales
+ - ARANCEL: 31,451
+5.04
+ - DESCR: Lobectomia total o parcial por traumatismo o epilepsia.
+ - ARANCEL: 31,451
+```
+
+#### Por texto
+
+Busca en todos los campos, incluso codigo
+
+```python
+from nhpgd.nomenclador import Nomenclador
+n = Nomenclador()
+for s in n.search(txt='5.04'):
     print(s['codigo'])
     print(' - DESCR: {}'.format(s['descripcion']))
     print(' - ARANCEL: {}'.format(s['arancel']))
@@ -43,7 +70,7 @@ for s in n.search('5.04'):
 ```
 
 ```python
-for s in n.search('HIV'):
+for s in n.search(txt='HIV'):
     print(s['codigo'])
     print(' - DESCR: {}'.format(s['descripcion']))
     print(' - ARANCEL: {}'.format(s['arancel']))
@@ -84,6 +111,17 @@ for s in n.search('HIV'):
 40.08
  - DESCR: HIV ENVA/CORE (Laboratorio N° 405)
  - ARANCEL: 3,885
+```
+
+### Verificar si existe código
+
+```python
+from nhpgd.nomenclador import Nomenclador
+n = Nomenclador()
+print(n.code_exists('5.04'))
+True
+print(n.code_exists('5.05'))
+False
 ```
 
 ## Actualizar la base de datos

@@ -71,12 +71,24 @@ class Nomenclador:
 
         self.tree = tree
     
-    def search(self, txt):
+    def search(self, codigo=None, txt=None):
+        # buscar por código (identico) o por texto (en todos los campos, incluso codigo)
         for code, content in self.tree.items():
-            # saca del medio, Solr
-            full_str = ' '.join([str(val).lower() for key, val in content.items()])
-            if full_str.find(txt.lower()) > -1:
-                yield content
+            if code is not None:
+                if content['codigo'] == codigo:
+                    yield content
+            if txt is not None:
+                # saca del medio, Solr
+                full_str = ' '.join([str(val).lower() for key, val in content.items()])
+                if full_str.find(txt.lower()) > -1:
+                    yield content
+    
+    def code_exists(self, codigo):
+        exist = False
+        for nom in self.search(codigo=codigo):
+            exist = True
+            break
+        return exist
 
     def save_csv(self, path):
         f = open(path, 'w')

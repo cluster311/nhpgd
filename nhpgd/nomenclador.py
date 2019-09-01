@@ -22,7 +22,8 @@ class Nomenclador:
     
     def download_csv(self):
         req = requests.get(self.url_csv)
-
+        if not os.path.isdir(self.data_folder):
+            os.mkdir(self.data_folder)
         f = open(self.local_csv, 'wb')
         f.write(req.content)
         f.close()

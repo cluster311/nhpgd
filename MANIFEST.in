@@ -1,0 +1,2 @@
+# Esto no debería ser necesario
+include nhpgd_django/migrations/*.py

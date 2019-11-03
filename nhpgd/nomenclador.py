@@ -97,6 +97,6 @@ class Nomenclador:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
 
         writer.writeheader()
-        for i, nom in n.tree.items():
+        for i, nom in self.tree.items():
             writer.writerow(nom)
         f.close

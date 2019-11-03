@@ -7,11 +7,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='nhpgd',
-     version='0.203',
+     version='0.205',
      license='MIT',
      author="Andres Vazquez",
      author_email="andres@data99.com.ar",
-     description="Lista de Códigos CIE10 en español. Librería Python simple + versión Django",
+     description="Lista de Códigos del Nomenclador de Hospitales públicos de gestión descentralizada. Librería Python simple + versión Django",
      long_description=long_description,
      long_description_content_type="text/markdown",
      url="https://github.com/cluster311/nhpgd",
@@ -19,7 +19,7 @@ setuptools.setup(
         
      ],
      include_package_data=True,  # for ZIP file
-     packages=['nhpgd', 'nhpgd_django'], 
+     packages=['nhpgd', 'nhpgd_django'],
      
      classifiers=[
          'Programming Language :: Python :: 3',
@@ -28,7 +28,7 @@ setuptools.setup(
          'Framework :: Django',
          'Framework :: Django :: 2.2',
          'Operating System :: OS Independent',
-         'Intended Audience :: Developers', 
+         'Intended Audience :: Developers',
      ],
      python_requires='>=3.6',
  )

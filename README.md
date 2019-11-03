@@ -113,6 +113,15 @@ for s in n.search(txt='HIV'):
  - ARANCEL: 3,885
 ```
 
+### Iterar por toda la lista
+
+Pasar por todos los elementos del nomenclador
+```python
+from nhpgd.nomenclador import Nomenclador
+n = Nomenclador()
+for i, nom in n.tree.items():
+    print(nom)
+```
 ### Verificar si existe código
 
 ```python
